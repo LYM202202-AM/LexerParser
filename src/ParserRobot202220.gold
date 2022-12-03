@@ -14,26 +14,26 @@ function createParser(A):IPushdownAutomaton begin
 	M:=GPushdownAutomaton(Q,Σ,Γ,q₀,F)
 SkipChars := {' ', '\n'}   // this will only  be used when testing only the parser as the lexer removes  SkipChars
 	
-M.delta(0,1,'w').ignore()
-M.delta(1,2,'(').ignore()
-M.delta(2,7,'#').ignore()
-M.delta(2,7,'V').ignore()
-M.delta(2,7,'v').ignore()
+// M.delta(0,1,'w').ignore()
+// M.delta(1,2,'(').ignore()
+// M.delta(2,7,'#').ignore()
+// M.delta(2,7,'V').ignore()
+// M.delta(2,7,'v').ignore()
 
-M.delta(2,3,'r').ignore()
-M.delta(3,6,',').ignore()
+// M.delta(2,3,'r').ignore()
+// M.delta(3,6,',').ignore()
 
-M.delta(0,4,'k').ignore()
+// M.delta(0,4,'k').ignore()
 
-M.delta(4,5,'(').ignore()
-M.delta(5,7,'N').ignore()
+// M.delta(4,5,'(').ignore()
+// M.delta(5,7,'N').ignore()
 
 
-M.delta(6,7,'#').ignore()
-M.delta(6,7,'V').ignore()
+// M.delta(6,7,'#').ignore()
+// M.delta(6,7,'V').ignore()
 
-M.delta(6,7,'v').ignore()
-M.delta(7,0,')').ignore()
+// M.delta(6,7,'v').ignore()
+// M.delta(7,0,')').ignore()
 
 
  // this will only  be used when testing only the parser as the lexer removes  SkipChars

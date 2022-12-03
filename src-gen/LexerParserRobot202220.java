@@ -75,7 +75,7 @@ public final class LexerParserRobot202220 {
     $try:try {
       gold.structures.set.ISet $v5=$newSet(GCollections.emptySet());
       $v6:for (Object s:GCollections.unmodifiableCollection(strings)) {
-        $v5.union(GCollections.unmodifiableSet(((java.lang.Iterable)(LexerParserRobot202220.chars(s)))));
+        $v5.union(GCollections.unmodifiableSet(((java.lang.Iterable)($invokeMethod(LexerParserRobot202220.class,"chars",true,null,new Object[]{s})))));
       }
       $result=$v5;
       if (true) break $try;
@@ -176,7 +176,7 @@ public final class LexerParserRobot202220 {
       $line=24;
       GAutomataFrame.show($cast(gold.structures.automaton.IAutomaton.class,parser));
       $line=28;
-      LexerParserRobot202220.testLexerParser($cast(gold.structures.automaton.ITransducer.class,lexer),$cast(gold.structures.automaton.IPushdownAutomaton.class,parser));
+      $invokeMethod(LexerParserRobot202220.class,"testLexerParser",true,null,new Object[]{lexer,parser});
     }
     catch (Throwable $throwable) {
       $rethrow($throwable,LexerParserRobot202220.class,"main",$line);
@@ -196,7 +196,7 @@ public final class LexerParserRobot202220 {
       String input=null;
       input=$defaultValue(String.class);
       $line=38;
-      Object inputA=$fix(LexerParserRobot202220.elements(((gold.structures.automaton.ITransducer)M).getInputAlphabet()));
+      Object inputA=$fix($invokeMethod(LexerParserRobot202220.class,"elements",true,null,new Object[]{((gold.structures.automaton.ITransducer)M).getInputAlphabet()}));
       $line=39;
       input=$cast(String.class,$fix(""));
       $line=40;
@@ -223,7 +223,7 @@ public final class LexerParserRobot202220 {
           string=$cast(String.class,$fix($opAdditY(((java.util.Scanner)sc).nextLine()," \n  ")));
         }
         $line=51;
-        if ($opSbsetY(LexerParserRobot202220.chars(input),inputA)) {
+        if ($opSbsetY($invokeMethod(LexerParserRobot202220.class,"chars",true,null,new Object[]{input}),inputA)) {
           $line=52;
           Object currentString=$fix("");
           $line=53;
@@ -231,9 +231,9 @@ public final class LexerParserRobot202220 {
           $line=55;
           Object result=$fix(Lexer202220.runLexer(M,input));
           $line=58;
-          Object ok=$fix(LexerParserRobot202220.get1($cast(java.lang.Iterable.class,result)));
+          Object ok=$fix($invokeMethod(LexerParserRobot202220.class,"get1",true,null,new Object[]{result}));
           $line=59;
-          images=$fix(LexerParserRobot202220.get2($cast(java.lang.Iterable.class,result)));
+          images=$fix($invokeMethod(LexerParserRobot202220.class,"get2",true,null,new Object[]{result}));
           $line=60;
           Object tokenStream=$fix(((gold.structures.automaton.ITransducer)M).getOutputString());
           $line=62;
@@ -252,7 +252,7 @@ public final class LexerParserRobot202220 {
         }
         else {
           $line=68;
-          System.out.println($message(new Object[]{$opAdditY("Input contains invalid characters: ",$opDiffeY(LexerParserRobot202220.chars(input),inputA))}));
+          System.out.println($message(new Object[]{$opAdditY("Input contains invalid characters: ",$opDiffeY($invokeMethod(LexerParserRobot202220.class,"chars",true,null,new Object[]{input}),inputA))}));
         }
         $line=70;
         System.out.println($message(new Object[]{"----------------------------"}));
@@ -284,9 +284,9 @@ public final class LexerParserRobot202220 {
       String string=null;
       string=$defaultValue(String.class);
       $line=94;
-      Object inputA=$fix(LexerParserRobot202220.elements(((gold.structures.automaton.ITransducer)M).getInputAlphabet()));
+      Object inputA=$fix($invokeMethod(LexerParserRobot202220.class,"elements",true,null,new Object[]{((gold.structures.automaton.ITransducer)M).getInputAlphabet()}));
       $line=95;
-      Object inputP=$fix(LexerParserRobot202220.elements(((gold.structures.automaton.IPushdownAutomaton)P).getInputAlphabet()));
+      Object inputP=$fix($invokeMethod(LexerParserRobot202220.class,"elements",true,null,new Object[]{((gold.structures.automaton.IPushdownAutomaton)P).getInputAlphabet()}));
       $line=98;
       Object input=$fix("");
       $line=101;
@@ -333,7 +333,7 @@ public final class LexerParserRobot202220 {
         $line=126;
         if ($opMembrY(option,GCollections.asSet("1","2"))) {
           $line=127;
-          if ($opSbsetY(LexerParserRobot202220.chars(input),inputA)) {
+          if ($opSbsetY($invokeMethod(LexerParserRobot202220.class,"chars",true,null,new Object[]{input}),inputA)) {
             $line=128;
             Object currentString=$fix("");
             $line=129;
@@ -341,9 +341,9 @@ public final class LexerParserRobot202220 {
             $line=131;
             Object result=$fix(Lexer202220.runLexer(M,input));
             $line=134;
-            Object ok=$fix(LexerParserRobot202220.get1($cast(java.lang.Iterable.class,result)));
+            Object ok=$fix($invokeMethod(LexerParserRobot202220.class,"get1",true,null,new Object[]{result}));
             $line=135;
-            images=$fix(LexerParserRobot202220.get2($cast(java.lang.Iterable.class,result)));
+            images=$fix($invokeMethod(LexerParserRobot202220.class,"get2",true,null,new Object[]{result}));
             $line=136;
             Object tokenStream=$fix(((gold.structures.automaton.ITransducer)M).getOutputString());
             $line=141;
@@ -369,12 +369,12 @@ public final class LexerParserRobot202220 {
           }
           else {
             $line=151;
-            System.out.println($message(new Object[]{$opAdditY("Input contains invalid characters: ",$opDiffeY(LexerParserRobot202220.chars(input),inputA))}));
+            System.out.println($message(new Object[]{$opAdditY("Input contains invalid characters: ",$opDiffeY($invokeMethod(LexerParserRobot202220.class,"chars",true,null,new Object[]{input}),inputA))}));
           }
         }
         else {
           $line=154;
-          if ($opSbsetY(LexerParserRobot202220.chars(input),inputP)) {
+          if ($opSbsetY($invokeMethod(LexerParserRobot202220.class,"chars",true,null,new Object[]{input}),inputP)) {
             $line=155;
             Object ok=$fix(((gold.structures.automaton.IPushdownAutomaton)P).acceptsString($cast(java.lang.String.class,input)));
             $line=156;
@@ -382,7 +382,7 @@ public final class LexerParserRobot202220 {
           }
           else {
             $line=158;
-            System.out.println($message(new Object[]{$opAdditY("Input contains invalid characters: ",$opDiffeY(LexerParserRobot202220.chars(input),inputP))}));
+            System.out.println($message(new Object[]{$opAdditY("Input contains invalid characters: ",$opDiffeY($invokeMethod(LexerParserRobot202220.class,"chars",true,null,new Object[]{input}),inputP))}));
           }
         }
         $line=161;
