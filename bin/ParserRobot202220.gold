@@ -45,6 +45,7 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(4,4,')').changeTop("$(", "$")
 
 	M.delta(4,5,'{').push("}")
+	M.delta(4,5,'{').changeTop("$}iC", "$}i}")
 
 	// PROCEDURE BODY
 
@@ -78,6 +79,7 @@ function createParser(A):IPushdownAutomaton begin
 
 
 	M.delta(5,0,'}').pop("}")
+	M.delta(5,18,'}').changeTop("$}i}", "$}i")
 
 	// PROCEDURE CALL @
 
@@ -145,7 +147,7 @@ function createParser(A):IPushdownAutomaton begin
 
 	// IF
 
-	M.delta(5,13,'i').push("(")
+	M.delta(5,13,'i').push("i")
 
 	M.delta(13,14,'(').push(")O(&")
 	M.delta(13,14,'(').push("))O(&(N")
@@ -187,7 +189,7 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(14,14,'N').pop("N")
 	M.delta(14,14,'O').pop("O")
 	M.delta(14,14,')').pop(")")
-	M.delta(14,5,')').changeTop("$}(","$}")
+	M.delta(14,4,')').changeTop("$}i","$}iC")
 
 	// isValid(ins,n)
 	M.delta(15,15,'T').pop("T")
@@ -199,7 +201,7 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(15,15,'@').pop("@")
 	M.delta(15,15,'w').pop("w")
 	M.delta(15,15,'N').pop("N")
-	M.delta(15,5,')').changeTop("$}(","$}")
+	M.delta(15,4,')').changeTop("$}i","$}iC")
 
 	// canWalk(O,n)
 	M.delta(16,16,'C').pop("C")
@@ -210,7 +212,7 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(16,16,'#').pop("#")
 	M.delta(16,16,')').pop(")")
 	M.delta(16,16,'N').pop("N")
-	M.delta(16,5,')').changeTop("$}(","$}")
+	M.delta(16,4,')').changeTop("$}i","$}iC")
 
 	// canWalk(d,n)
 	M.delta(17,17,'C').pop("C")
@@ -224,11 +226,17 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(17,17,'#').pop("#")
 	M.delta(17,17,')').pop(")")
 	M.delta(17,17,'N').pop("N")
-	M.delta(17,5,')').changeTop("$}(","$}")
+	M.delta(17,4,')').changeTop("$}i","$}iC")
 
 
+	// CONTROL STRUCTURES BLOCK
 
+	// IF
+	// AFTER FINISHING THE IF STATEMENT, THE CONDITION, AND THE BLOCK, THE STACK SHOULD BE LIKE THIS:
+	// $}i
 
+	M.delta(18,18,'f').pop("i")
+	M.delta(18,5,';').ignore()
 
 
 
