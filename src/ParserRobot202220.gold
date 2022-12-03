@@ -1,3 +1,14 @@
+// Authors:
+
+// Abel Arismendy
+// 202020625
+// a.arismendy@uniandes.edu.co
+
+// Manuela Pacheco
+// 202112410
+// m.pachecom2@uniandes.edu.co
+
+
 using gold.**
 
 toSet(C) :=  {x|  x in C}
@@ -5,7 +16,7 @@ toSet(C) :=  {x|  x in C}
 ///====   mini Parser===
 
 function createParser(A):IPushdownAutomaton begin
-	Q:=(0‥30)
+	Q:=(0‥28)
 	Σ:=toSet(A)  ∪ {' ', '\n'}
 	Γ:={'$'} ∪ toSet(A)
 	q₀:=0
@@ -14,8 +25,6 @@ function createParser(A):IPushdownAutomaton begin
 	SkipChars := {' ', '\n'}   // this will only  be used when testing only the parser as the lexer removes  SkipChars
 
 	// 6%v,v,v;[v(v,v){@(v);@(v);w(v)}][v(){8(C(O,#))<{w(O,#)}>}][v(){i(C(O,#)){w(O,#)}f}]{v(#,#);v=#;v(#,#)}9
-
-	// 6%v;[v(v,v)9
 
 
 	// Transitions
@@ -83,10 +92,29 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(5,12,'w').push(")v,L(")
 	M.delta(5,12,'w').push(")v,B(")
 
+	M.delta(5,26,'v').push(")A(")
+	M.delta(5,26,'v').push(")(")
 
 	// M.delta(5,24,'}').pop("}")
 	// M.delta(5,18,'}').changeTop("$}i}", "$}i")
 	// M.delta(5,19,'}').changeTop("$}ie}", "$}ie")
+
+	// FUNCTION CALL
+
+	M.delta(26,27,'(').pop("(")
+	M.delta(27,27,'v').pop("A")
+	M.delta(27,27,'#').pop("A")
+	M.delta(27,27,',').changeTop(")", ")A")
+	M.delta(27,28,')').pop(")")
+	M.delta(28,5,';').ignore()
+	M.delta(28,24,'}').changeTop("$}", "$")
+	M.delta(28,25,'}').changeTop("$$}", "$$")
+	M.delta(28,18,'}').changeTop("$}i}", "$}i")
+	M.delta(28,19,'}').changeTop("$}ie}", "$}ie")
+	M.delta(28,21,'}').changeTop("$}8}", "$}8")
+	M.delta(28,23,'}').changeTop("$}r#}", "$}r")
+
+
 
 	// PROCEDURE CALL @
 

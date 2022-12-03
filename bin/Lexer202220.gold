@@ -1,3 +1,14 @@
+// Authors:
+
+// Abel Arismendy
+// 202020625
+// a.arismendy@uniandes.edu.co
+
+// Manuela Pacheco
+// 202112410
+// m.pachecom2@uniandes.edu.co
+
+
 using gold.**
 
 var currentString: String
