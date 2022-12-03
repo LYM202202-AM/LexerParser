@@ -1,0 +1,37 @@
+PROG
+VAR n , x , y ;
+PROC putCB (c , b )
+{
+drop ( c ) ;
+free ( b ) ;
+walk ( south, 2)
+}
+CORP
+PROC goSouth ()
+{
+while ( canWalk ( south ,1) ) do { walk ( south ,1) } od
+}
+CORP
+PROC goNorth ()
+{
+while ( canWalk ( north ,1) ) do { walk ( north ,1) } od
+}
+CORP
+PROC goWest ()
+{
+while ( canWalk ( west ,1) ) do { walk ( west ,1) } od
+}
+CORP
+PROC goEast ()
+{
+while ( canWalk ( east ,1) ) do { walk ( east ,1) } od
+}
+CORP
+{
+goSouth();
+goEast();
+goNorth();
+goWest()
+
+}
+GORP
