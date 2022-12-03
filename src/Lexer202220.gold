@@ -252,8 +252,8 @@ procedure initialize() begin
 	- not -> N
 
 	PROGRAM STRUCTURE:
-	- PROG -> \
-	- GORP -> /
+	- PROG -> 6
+	- GORP -> 9
 	- PROC -> [
 	- CORP -> ]
 	- var -> %
@@ -328,8 +328,8 @@ procedure initialize() begin
 	translation.put("canWalk",'C')
 	translation.put("not",'N')
 	// Program Structure
-	translation.put("PROG",'\\')
-	translation.put("GORP",'/')
+	translation.put("PROG",'6')
+	translation.put("GORP",'9')
 	translation.put("PROC",'[')
 	translation.put("CORP",']')
 	translation.put("var",'%')

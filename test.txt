@@ -9,17 +9,17 @@ walk ( n )
 CORP
 PROC goNorth ()
 {
-wh i le ( canWalk ( north ,1) ) do { walk ( north ,1) } od
+while ( canWalk ( north ,1) ) do { walk ( north ,1) } od
 }
 CORP
 PROC goWest ()
 {
-i f ( canWalk ( west ,1) ) { walk ( west ,1) } fi
+if ( canWalk ( west ,1) ) { walk ( west ,1) } fi
 }
 CORP
 {
 go (3 ,3) ;
-n =6;
+n:=6;
 putCB (2 ,1)
 }
 GORP
