@@ -15,14 +15,36 @@ function createParser(A):IPushdownAutomaton begin
 
 	// 6%v,v,v;[v(v,v){@(v);@(v);w(v)}][v(){8(C(O,#))<{w(O,#)}>}][v(){i(C(O,#)){w(O,#)}f}]{v(#,#);v=#;v(#,#)}9
 
-	// 6%v;9
+	// 6%v;[v(v,v)9
 
-	M.delta(0,1,'6').push("$")
+
+	// Transitions
+
+	M.delta(0,1,'6').push("$") // PROG
+
+	// VARIABLES
+
 	M.delta(1,1, '%').changeTop("$", "$;v")
 	M.delta(1,1, 'v').pop("v")
 	M.delta(1,1, ',').changeTop("$;", "$;v")
-	M.delta(1,0, ';').pop(";")
-	M.delta(0,0,'9').pop("$")
+	M.delta(1,2, ';').pop(";")
+
+	// PROCEDURES
+
+	M.delta(2,2,'[').push("(v")
+	M.delta(2,2,'v').pop("v")
+	M.delta(2,3,'(').changeTop("$(", "$(v")
+	M.delta(2,4,'(').ignore()
+
+	// PROCEDURE PARAMETERS
+
+	M.delta(3,3,'v').pop("v")
+	M.delta(3,3,',').changeTop("$(", "$(v")
+	M.delta(3,0,')').pop("(")
+
+	M.delta(4,0,')').changeTop("$(", "$")
+
+	M.delta(0,0,'9').pop("$") //GORP
 
 
  // this will only  be used when testing only the parser as the lexer removes  SkipChars

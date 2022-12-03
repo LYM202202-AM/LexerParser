@@ -82,32 +82,48 @@ public final class ParserRobot202220 {
       Object M=$fix($invokeConstructor(GPushdownAutomaton.class,new Object[]{Q,\u03A3,\u0393,q_0,F}));
       $line=14;
       Object SkipChars=$fix(GCollections.asSet(' ','\n'));
-      $line=20;
-      $invokeMethod("push",((gold.structures.automaton.GPushdownAutomaton)M).delta(0,1,$cast(java.lang.String.class,'6')),new Object[]{"$"});
-      $line=21;
-      $invokeMethod("changeTop",((gold.structures.automaton.GPushdownAutomaton)M).delta(1,1,$cast(java.lang.String.class,'%')),new Object[]{"$","$;v"});
-      $line=22;
-      $invokeMethod("pop",((gold.structures.automaton.GPushdownAutomaton)M).delta(1,1,$cast(java.lang.String.class,'v')),new Object[]{"v"});
       $line=23;
-      $invokeMethod("changeTop",((gold.structures.automaton.GPushdownAutomaton)M).delta(1,1,$cast(java.lang.String.class,',')),new Object[]{"$;","$;v"});
-      $line=24;
-      $invokeMethod("pop",((gold.structures.automaton.GPushdownAutomaton)M).delta(1,0,$cast(java.lang.String.class,';')),new Object[]{";"});
-      $line=25;
-      $invokeMethod("pop",((gold.structures.automaton.GPushdownAutomaton)M).delta(0,0,$cast(java.lang.String.class,'9')),new Object[]{"$"});
+      $invokeMethod("push",((gold.structures.automaton.GPushdownAutomaton)M).delta(0,1,$cast(java.lang.String.class,'6')),new Object[]{"$"});
+      $line=27;
+      $invokeMethod("changeTop",((gold.structures.automaton.GPushdownAutomaton)M).delta(1,1,$cast(java.lang.String.class,'%')),new Object[]{"$","$;v"});
+      $line=28;
+      $invokeMethod("pop",((gold.structures.automaton.GPushdownAutomaton)M).delta(1,1,$cast(java.lang.String.class,'v')),new Object[]{"v"});
       $line=29;
+      $invokeMethod("changeTop",((gold.structures.automaton.GPushdownAutomaton)M).delta(1,1,$cast(java.lang.String.class,',')),new Object[]{"$;","$;v"});
+      $line=30;
+      $invokeMethod("pop",((gold.structures.automaton.GPushdownAutomaton)M).delta(1,2,$cast(java.lang.String.class,';')),new Object[]{";"});
+      $line=34;
+      $invokeMethod("push",((gold.structures.automaton.GPushdownAutomaton)M).delta(2,2,$cast(java.lang.String.class,'[')),new Object[]{"(v"});
+      $line=35;
+      $invokeMethod("pop",((gold.structures.automaton.GPushdownAutomaton)M).delta(2,2,$cast(java.lang.String.class,'v')),new Object[]{"v"});
+      $line=36;
+      $invokeMethod("changeTop",((gold.structures.automaton.GPushdownAutomaton)M).delta(2,3,$cast(java.lang.String.class,'(')),new Object[]{"$(","$(v"});
+      $line=37;
+      $invokeMethod("ignore",((gold.structures.automaton.GPushdownAutomaton)M).delta(2,4,$cast(java.lang.String.class,'(')),new Object[]{});
+      $line=41;
+      $invokeMethod("pop",((gold.structures.automaton.GPushdownAutomaton)M).delta(3,3,$cast(java.lang.String.class,'v')),new Object[]{"v"});
+      $line=42;
+      $invokeMethod("changeTop",((gold.structures.automaton.GPushdownAutomaton)M).delta(3,3,$cast(java.lang.String.class,',')),new Object[]{"$(","$(v"});
+      $line=43;
+      $invokeMethod("pop",((gold.structures.automaton.GPushdownAutomaton)M).delta(3,0,$cast(java.lang.String.class,')')),new Object[]{"("});
+      $line=45;
+      $invokeMethod("changeTop",((gold.structures.automaton.GPushdownAutomaton)M).delta(4,0,$cast(java.lang.String.class,')')),new Object[]{"$(","$"});
+      $line=47;
+      $invokeMethod("pop",((gold.structures.automaton.GPushdownAutomaton)M).delta(0,0,$cast(java.lang.String.class,'9')),new Object[]{"$"});
+      $line=51;
       for (Object $v3:GCollections.unmodifiableCollection(Q)) {
         Object q=$v3;
-        $line=30;
+        $line=52;
         for (Object $v4:GCollections.unmodifiableCollection(SkipChars)) {
           Object s=$v4;
-          $line=31;
+          $line=53;
           $invokeMethod("ignore",((gold.structures.automaton.GPushdownAutomaton)M).delta(q,q,$cast(java.lang.String.class,$opAdditY("",s))),new Object[]{});
         }
       }
-      $line=36;
+      $line=58;
       $result=M;
       if (true) break $try;
-      $line=37;
+      $line=59;
       $rethrow(new RuntimeException("The function \"createParser(A:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
