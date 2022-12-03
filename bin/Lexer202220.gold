@@ -214,7 +214,7 @@ procedure initialize() begin
 	COMMANDS:
 	- walk -> w
 	- jumpTo -> j
-	- veer -> v
+	- veer -> V
 	- look -> l
 	- jump -> @
 	- drop -> @
@@ -228,6 +228,7 @@ procedure initialize() begin
 	- back -> B
 	- left -> L
 	- right -> R
+	- around -> A
 
 	ORIENTATIONS:
 	- north -> O
@@ -247,7 +248,7 @@ procedure initialize() begin
 
 	CONDITIONS:
 	- isFacing -> &
-	- isValid -> V
+	- isValid -> T
 	- canWalk -> C
 	- not -> N
 
@@ -278,7 +279,7 @@ procedure initialize() begin
 
 	allSymbols := {"(", ")" , ",", ":=", ";", "{", "}" }  // Symbols  and brackets, both single char and  multicharacter
 	keyWords := {"walk", "jumpTo", "veer", "look", "jump", "drop", "grab", "get", "free", "pop", "front", "back", "left",
-				"right", "north", "south", "east", "west", "if", "fi", "else", "while", "do", "od", "repeatTimes", "per",
+				"right", "around", "north", "south", "east", "west", "if", "fi", "else", "while", "do", "od", "repeatTimes", "per",
 				"isFacing", "isValid", "canWalk", "not", "PROG", "GORP", "PROC", "CORP", "VAR"} // Keywords
 
 
@@ -295,7 +296,7 @@ procedure initialize() begin
 	// Commands
 	translation.put("walk",'w')
 	translation.put("jumpTo",'j')
-	translation.put("veer",'v')
+	translation.put("veer",'V')
 	translation.put("look",'l')
 	translation.put("jump",'@')
 	translation.put("drop",'@')
@@ -308,6 +309,7 @@ procedure initialize() begin
 	translation.put("back",'B')
 	translation.put("left",'L')
 	translation.put("right",'R')
+	translation.put("around",'A')
 	// Orientations
 	translation.put("north",'O')
 	translation.put("south",'O')
@@ -324,7 +326,7 @@ procedure initialize() begin
 	translation.put("per",'p')
 	// Conditions
 	translation.put("isFacing",'&')
-	translation.put("isValid",'V')
+	translation.put("isValid",'T')
 	translation.put("canWalk",'C')
 	translation.put("not",'N')
 	// Program Structure

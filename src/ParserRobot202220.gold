@@ -5,7 +5,7 @@ toSet(C) :=  {x|  x in C}
 ///====   mini Parser===
 
 function createParser(A):IPushdownAutomaton begin
-	Q:=(0‥7)
+	Q:=(0‥9)
 	Σ:=toSet(A)  ∪ {' ', '\n'}
 	Γ:={'$'} ∪ toSet(A)
 	q₀:=0
@@ -40,9 +40,59 @@ function createParser(A):IPushdownAutomaton begin
 
 	M.delta(3,3,'v').pop("v")
 	M.delta(3,3,',').changeTop("$(", "$(v")
-	M.delta(3,0,')').pop("(")
+	M.delta(3,4,')').pop("(")
 
-	M.delta(4,0,')').changeTop("$(", "$")
+	M.delta(4,4,')').changeTop("$(", "$")
+
+	M.delta(4,5,'{').push("}")
+
+	// PROCEDURE BODY
+
+	M.delta(5,6,'@').push(")#(")
+	M.delta(5,6,'@').push(")v(")
+	M.delta(5,7,'j').push(")#,#(")
+	M.delta(5,7,'j').push(")v,#(")
+	M.delta(5,7,'j').push(")#,v(")
+	M.delta(5,7,'j').push(")v,v(")
+	M.delta(5,8,'V').push(")L(")
+	M.delta(5,8,'V').push(")R(")
+	M.delta(5,8,'V').push(")A(")
+	M.delta(5,9,'l').push(")O(")
+
+	M.delta(5,0,'}').pop("}")
+
+	// PROCEDURE CALL @
+
+	M.delta(6,6,'(').pop("(")
+	M.delta(6,6,'#').pop("#")
+	M.delta(6,6,'v').pop("v")
+	M.delta(6,6,')').pop(")")
+	M.delta(6,5,';').ignore()
+
+	// PROCEDURE CALL j
+
+	M.delta(7,7,'(').pop("(")
+	M.delta(7,7,'#').pop("#")
+	M.delta(7,7,'v').pop("v")
+	M.delta(7,7,',').pop(",")
+	M.delta(7,7,')').pop(")")
+	M.delta(7,5,';').ignore()
+
+	// PROCEDURE CALL V
+
+	M.delta(8,8,'(').pop("(")
+	M.delta(8,8,'L').pop("L")
+	M.delta(8,8,'R').pop("R")
+	M.delta(8,8,'A').pop("A")
+	M.delta(8,8,')').pop(")")
+	M.delta(8,5,';').ignore()
+
+	// PROCEDURE CALL l
+
+	M.delta(9,9,'(').pop("(")
+	M.delta(9,9,'O').pop("O")
+	M.delta(9,9,')').pop(")")
+	M.delta(9,5,';').ignore()
 
 	M.delta(0,0,'9').pop("$") //GORP
 
