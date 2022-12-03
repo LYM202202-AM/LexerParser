@@ -141,6 +141,97 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(12,12,')').pop(")")
 	M.delta(12,5,';').ignore()
 
+	// CONTROL STRUCTURES
+
+	// IF
+
+	M.delta(5,13,'i').push("(")
+
+	M.delta(13,14,'(').push(")O(&")
+	M.delta(13,14,'(').push("))O(&(N")
+
+	M.delta(13,15,'(').push(")v,@(T")
+	M.delta(13,15,'(').push(")#,@(T")
+	M.delta(13,15,'(').push(")#,w(T")
+	M.delta(13,15,'(').push(")v,w(T")
+	M.delta(13,15,'(').push("))v,@(T(N")
+	M.delta(13,15,'(').push("))#,@(T(N")
+	M.delta(13,15,'(').push("))v,w(T(N")
+	M.delta(13,15,'(').push("))#,w(T(N")
+
+	M.delta(13,16,'(').push(")v,O(C")
+	M.delta(13,16,'(').push(")#,O(C")
+	M.delta(13,16,'(').push("))#,O(C(N")
+	M.delta(13,16,'(').push("))v,O(C(N")
+
+	M.delta(13,17,'(').push(")#,F(C")
+	M.delta(13,17,'(').push(")#,B(C")
+	M.delta(13,17,'(').push(")#,L(C")
+	M.delta(13,17,'(').push(")#,R(C")
+	M.delta(13,17,'(').push(")v,F(C")
+	M.delta(13,17,'(').push(")v,B(C")
+	M.delta(13,17,'(').push(")v,L(C")
+	M.delta(13,17,'(').push(")v,R(C")
+	M.delta(13,17,'(').push("))#,F(C(N")
+	M.delta(13,17,'(').push("))#,B(C(N")
+	M.delta(13,17,'(').push("))#,L(C(N")
+	M.delta(13,17,'(').push("))#,R(C(N")
+	M.delta(13,17,'(').push("))v,F(C(N")
+	M.delta(13,17,'(').push("))v,B(C(N")
+	M.delta(13,17,'(').push("))v,L(C(N")
+	M.delta(13,17,'(').push("))v,R(C(N")
+
+	// isFacing(O)
+	M.delta(14,14,'&').pop("&")
+	M.delta(14,14,'(').pop("(")
+	M.delta(14,14,'N').pop("N")
+	M.delta(14,14,'O').pop("O")
+	M.delta(14,14,')').pop(")")
+	M.delta(14,5,')').changeTop("$}(","$}")
+
+	// isValid(ins,n)
+	M.delta(15,15,'T').pop("T")
+	M.delta(15,15,'(').pop("(")
+	M.delta(15,15,'v').pop("v")
+	M.delta(15,15,',').pop(",")
+	M.delta(15,15,'#').pop("#")
+	M.delta(15,15,')').pop(")")
+	M.delta(15,15,'@').pop("@")
+	M.delta(15,15,'w').pop("w")
+	M.delta(15,15,'N').pop("N")
+	M.delta(15,5,')').changeTop("$}(","$}")
+
+	// canWalk(O,n)
+	M.delta(16,16,'C').pop("C")
+	M.delta(16,16,'(').pop("(")
+	M.delta(16,16,'O').pop("O")
+	M.delta(16,16,',').pop(",")
+	M.delta(16,16,'v').pop("v")
+	M.delta(16,16,'#').pop("#")
+	M.delta(16,16,')').pop(")")
+	M.delta(16,16,'N').pop("N")
+	M.delta(16,5,')').changeTop("$}(","$}")
+
+	// canWalk(d,n)
+	M.delta(17,17,'C').pop("C")
+	M.delta(17,17,'(').pop("(")
+	M.delta(17,17,'F').pop("F")
+	M.delta(17,17,'R').pop("R")
+	M.delta(17,17,'L').pop("L")
+	M.delta(17,17,'B').pop("B")
+	M.delta(17,17,',').pop(",")
+	M.delta(17,17,'v').pop("v")
+	M.delta(17,17,'#').pop("#")
+	M.delta(17,17,')').pop(")")
+	M.delta(17,17,'N').pop("N")
+	M.delta(17,5,')').changeTop("$}(","$}")
+
+
+
+
+
+
+
 	M.delta(0,0,'9').pop("$") //GORP
 
 
