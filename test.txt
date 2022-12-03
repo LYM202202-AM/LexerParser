@@ -1,5 +1,5 @@
 PROG
-var n , x , y ;
+VAR n , x , y ;
 PROC putCB (c , b )
 {
 drop ( c ) ;
@@ -18,8 +18,6 @@ if ( canWalk ( west ,1) ) { walk ( west ,1) } fi
 }
 CORP
 {
-go (3 ,3) ;
-n:=6;
-putCB (2 ,1)
+n:=6
 }
 GORP
