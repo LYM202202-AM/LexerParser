@@ -256,7 +256,7 @@ procedure initialize() begin
 	- GORP -> 9
 	- PROC -> [
 	- CORP -> ]
-	- var -> %
+	- VAR -> %
 
 	SYMBOLS:
 	- ( -> (
@@ -279,7 +279,7 @@ procedure initialize() begin
 	allSymbols := {"(", ")" , ",", ":=", ";", "{", "}" }  // Symbols  and brackets, both single char and  multicharacter
 	keyWords := {"walk", "jumpTo", "veer", "look", "jump", "drop", "grab", "get", "free", "pop", "front", "back", "left",
 				"right", "north", "south", "east", "west", "if", "fi", "else", "while", "do", "od", "repeatTimes", "per",
-				"isFacing", "isValid", "canWalk", "not", "PROG", "GORP", "PROC", "CORP", "var"} // Keywords
+				"isFacing", "isValid", "canWalk", "not", "PROG", "GORP", "PROC", "CORP", "VAR"} // Keywords
 
 
 	// TRANSLATION FOR ALL STRINGS IN KEYWORDS
@@ -332,7 +332,7 @@ procedure initialize() begin
 	translation.put("GORP",'9')
 	translation.put("PROC",'[')
 	translation.put("CORP",']')
-	translation.put("var",'%')
+	translation.put("VAR",'%')
 	// Symbols
 	translation.put(":=",'=')
 

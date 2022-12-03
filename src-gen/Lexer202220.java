@@ -952,7 +952,7 @@ public final class Lexer202220 {
       $line=279;
       allSymbols=$cast(ISet.class,$fix(GCollections.asSet("(",")",",",":=",";","{","}")));
       $line=280;
-      keyWords=$cast(ISet.class,$fix(GCollections.asSet("walk","jumpTo","veer","look","jump","drop","grab","get","free","pop","front","back","left","right","north","south","east","west","if","fi","else","while","do","od","repeatTimes","per","isFacing","isValid","canWalk","not","PROG","GORP","PROC","CORP","var")));
+      keyWords=$cast(ISet.class,$fix(GCollections.asSet("walk","jumpTo","veer","look","jump","drop","grab","get","free","pop","front","back","left","right","north","south","east","west","if","fi","else","while","do","od","repeatTimes","per","isFacing","isValid","canWalk","not","PROG","GORP","PROC","CORP","VAR")));
       $line=291;
       ((gold.structures.map.GHashTableMap)translation).put("IdL",'v');
       $line=292;
@@ -1028,7 +1028,7 @@ public final class Lexer202220 {
       $line=334;
       ((gold.structures.map.GHashTableMap)translation).put("CORP",']');
       $line=335;
-      ((gold.structures.map.GHashTableMap)translation).put("var",'%');
+      ((gold.structures.map.GHashTableMap)translation).put("VAR",'%');
       $line=337;
       ((gold.structures.map.GHashTableMap)translation).put(":=",'=');
     }
