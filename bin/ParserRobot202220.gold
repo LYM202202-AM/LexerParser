@@ -48,6 +48,7 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(4,5,'{').changeTop("$}iC", "$}i}")
 	M.delta(4,5,'{').changeTop("$}ie", "$}ie}")
 	M.delta(4,5,'{').changeTop("$}8", "$}8}")
+	M.delta(4,5,'{').changeTop("$}r#", "$}r#}")
 
 	// PROCEDURE BODY
 
@@ -95,6 +96,7 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(6,18,'}').changeTop("$}i}", "$}i")
 	M.delta(6,19,'}').changeTop("$}ie}", "$}ie")
 	M.delta(6,21,'}').changeTop("$}8}", "$}8")
+	M.delta(6,23,'}').changeTop("$}r#}", "$}r")
 
 
 	// PROCEDURE CALL j
@@ -109,6 +111,8 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(7,18,'}').changeTop("$}i}", "$}i")
 	M.delta(7,19,'}').changeTop("$}ie}", "$}ie")
 	M.delta(7,21,'}').changeTop("$}8}", "$}8")
+	M.delta(7,23,'}').changeTop("$}r#}", "$}r")
+
 
 
 
@@ -124,6 +128,8 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(8,18,'}').changeTop("$}i}", "$}i")
 	M.delta(8,19,'}').changeTop("$}ie}", "$}ie")
 	M.delta(8,21,'}').changeTop("$}8}", "$}8")
+	M.delta(8,23,'}').changeTop("$}r#}", "$}r")
+
 
 
 
@@ -137,6 +143,8 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(9,18,'}').changeTop("$}i}", "$}i")
 	M.delta(9,19,'}').changeTop("$}ie}", "$}ie")
 	M.delta(9,21,'}').changeTop("$}8}", "$}8")
+	M.delta(9,23,'}').changeTop("$}r#}", "$}r")
+
 
 
 
@@ -149,6 +157,8 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(10,18,'}').changeTop("$}i}", "$}i")
 	M.delta(10,19,'}').changeTop("$}ie}", "$}ie")
 	M.delta(10,21,'}').changeTop("$}8}", "$}8")
+	M.delta(10,23,'}').changeTop("$}r#}", "$}r")
+
 
 
 
@@ -165,6 +175,8 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(11,18,'}').changeTop("$}i}", "$}i")
 	M.delta(11,19,'}').changeTop("$}ie}", "$}ie")
 	M.delta(11,21,'}').changeTop("$}8}", "$}8")
+	M.delta(11,23,'}').changeTop("$}r#}", "$}r")
+
 
 
 
@@ -184,6 +196,8 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(12,18,'}').changeTop("$}i}", "$}i")
 	M.delta(12,19,'}').changeTop("$}ie}", "$}ie")
 	M.delta(12,21,'}').changeTop("$}8}", "$}8")
+	M.delta(12,23,'}').changeTop("$}r#}", "$}r")
+
 
 
 
@@ -287,6 +301,12 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(5,13,'8').push("8")
 	M.delta(20,4,'<').pop("C")
 
+	// REPEAT TIMES
+
+	M.delta(5,22,'r').push("r")
+	M.delta(22,4,'v').changeTop("$}r","$}r#")
+	M.delta(22,4,'#').changeTop("$}r","$}r#")
+
 	// CONTROL STRUCTURES BLOCK
 
 	// IF
@@ -313,6 +333,14 @@ function createParser(A):IPushdownAutomaton begin
 	M.delta(21,21,'>').pop("8")
 	M.delta(21,5,';').ignore()
 	M.delta(21,0,'}').changeTop("$}","$")
+
+	// REPEAT TIMES
+	// AFTER FINISHING THE REPEAT TIMES STATEMENT, THE CONDITION, AND THE BLOCK, THE STACK SHOULD BE LIKE THIS:
+	// $}r
+
+	M.delta(23,23,'p').pop("r")
+	M.delta(23,5,';').ignore()
+	M.delta(23,0,'}').changeTop("$}","$")
 
 	M.delta(0,0,'9').pop("$") //GORP
 
